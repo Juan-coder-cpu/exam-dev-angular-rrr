@@ -1,0 +1,45 @@
+<mat-card>
+    <mat-card-title>Usuario</mat-card-title>
+    <mat-card-content>
+      <form [formGroup]="form" (ngSubmit)="submit()">
+        <p>
+          <mat-form-field>
+            <input type="text" matInput placeholder="Nombres" formControlName="nombres">
+            <div *ngIf="form.hasError('whitespace')">Please enter valid data</div>
+            <mat-error *ngIf="idRequired('nombres')">El campo nombre es requerido</mat-error>
+              <mat-error *ngIf="noWhitespaceError('nombres')">El campo nombre no puede terminar con espacios en blanco</mat-error>
+          </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field>
+              <input type="text" matInput placeholder="Apellidos" formControlName="apellidos">
+              <mat-error *ngIf="idRequired('apellidos')">El campo apellido es requerido</mat-error>
+              <mat-error *ngIf="noWhitespaceError('apellidos')">El campo apellido no puede terminar con espacios en blanco</mat-error>
+            </mat-form-field>
+          </p>
+          <section>
+            <mat-checkbox formControlName="fumas">Fumas</mat-checkbox>
+          </section>
+          <section>
+            <mat-checkbox (change)="changeRead($event)" formControlName="actuamentePracticasLectura">Actualmente practicas lectura</mat-checkbox>
+          </section>
+          <div *ngIf="showBookList">
+            <p>
+               <mat-form-field>
+                <input type="text" matInput placeholder="Nuevo libro" formControlName="newBook">
+            </mat-form-field> 
+            </p>
+            <button type="button" (click)="addBook()" mat-button>Agregar libro a la lista</button>
+            <dir>Lista de libros:</dir>
+            <ul>
+                <li *ngFor="let book of bookList">{{book}}</li>
+            </ul>
+          </div>
+        <div class="button">
+          <button [disabled]="form.invalid" type="submit" mat-button>Registrar</button>
+        </div>
+  
+      </form>
+    </mat-card-content>
+  </mat-card>
+  

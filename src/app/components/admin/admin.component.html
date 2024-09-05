@@ -1,0 +1,18 @@
+<mat-toolbar>
+    <span>Examen</span>
+    <span class="example-spacer"></span>
+    <button mat-icon-button [routerLink]="['/admin/index']">
+        <mat-icon>home</mat-icon>
+    </button>
+    <button mat-icon-button [routerLink]="['/admin/conversations']">
+        <mat-icon>chat</mat-icon>
+    </button>
+    <button mat-icon-button [routerLink]="['/admin/date-calculate']">
+        <mat-icon>date_range</mat-icon>
+    </button>
+    <button mat-icon-button [routerLink]="['/admin/user']">
+        <mat-icon>contacts</mat-icon>
+    </button>
+</mat-toolbar>
+
+<router-outlet></router-outlet>

@@ -1,0 +1,36 @@
+<mat-card>
+    <mat-card-title>Calculando fechas</mat-card-title>
+    <mat-card-content>
+        <p>
+            <mat-form-field>
+                <mat-label>Selecciona una fecha</mat-label>
+                <input matInput [matDatepicker]="picker" [(ngModel)]="startDate">
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field>
+                <mat-label>Selecciona</mat-label>
+                <select matNativeControl [(ngModel)]="tipo" name="food" required>
+                    <option value="dia">Día</option>
+                    <option value="mes">Mes</option>
+                    <option value="anio">Año</option>
+                </select>
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field>
+                <input type="number" [(ngModel)]="value" matInput placeholder="valor">
+            </mat-form-field>
+        </p>
+
+        <div>{{result | date:'dd MMM yyyy'}}</div>
+
+        <div class="button">
+            <button type="button" (click)="add()" mat-button>Agregar</button>
+        </div>
+
+    </mat-card-content>
+</mat-card>

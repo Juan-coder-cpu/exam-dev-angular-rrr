@@ -1,0 +1,11 @@
+<h2 mat-dialog-title>Escribe tu nombre</h2>
+<mat-dialog-content>
+  <mat-form-field>
+    <mat-label>Nombre</mat-label>
+    <input matInput [(ngModel)]="name" />
+  </mat-form-field>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="cancel()">Cancelar</button>
+  <button mat-button (click)="setValue()">Aceptar</button>
+</mat-dialog-actions>

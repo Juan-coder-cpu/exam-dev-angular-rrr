@@ -1,0 +1,10 @@
+<div class="body d-flex flex-row-reverse bg-secondary">
+    <h1>Bienvenido a mi portal</h1>
+    <h4>Nos podrías indicar tu nombre</h4>
+    <h4 *ngIf="passwordEncrypted !== undefined">{{passwordEncrypted | cambioLetras}}</h4>
+    <div class="button">
+        <button type="button" (click)="showModal()" mat-button>Escribe tu nombre</button>
+      </div>
+      
+</div>
+
